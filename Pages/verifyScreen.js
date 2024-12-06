@@ -163,7 +163,7 @@ const styles = StyleSheet.create({
     marginHorizontal: 0,
   },
   pinInput: {
-    width: 80,
+    width: 70,
     height: 90,
     backgroundColor: colors.secondary,
     borderRadius: 10,

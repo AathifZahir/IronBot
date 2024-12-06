@@ -4,6 +4,7 @@ import { createStackNavigator } from "@react-navigation/stack";
 import { StatusBar } from "expo-status-bar";
 import { View, ActivityIndicator } from "react-native";
 import { useFonts } from "expo-font";
+import "react-native-gesture-handler"; // Ensure this is at the top
 
 import LaunchScreen from "./pages/launchScreen";
 import LoginScreen from "./pages/loginScreen";
@@ -13,6 +14,8 @@ import InfoScreen from "./pages/infoScreen";
 import ForgotScreen from "./pages/forgotScreen";
 import VerifyCodeScreen from "./pages/verifyCodeScreen";
 import ResetScreen from "./pages/resetScreen";
+import HomeScreen from "./pages/homeScreen";
+import ChatScreen from "./pages/chatScreen";
 
 const Stack = createStackNavigator();
 
@@ -56,6 +59,8 @@ export default function App() {
         <Stack.Screen name="Forgot" component={ForgotScreen} />
         <Stack.Screen name="VerifyPin" component={VerifyCodeScreen} />
         <Stack.Screen name="Reset" component={ResetScreen} />
+        <Stack.Screen name="Home" component={HomeScreen} />
+        <Stack.Screen name="Chat" component={ChatScreen} />
       </Stack.Navigator>
       <StatusBar style="light" />
     </NavigationContainer>

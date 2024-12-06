@@ -27,6 +27,11 @@ export default function InfoScreen() {
     navigation.navigate("Verify"); // Navigate to the VerifyScreen
   };
 
+  const navigateToHome = () => {
+    console.log("Proceed button pressed"); // Log the button press
+    navigation.navigate("Home"); // Navigate to the VerifyScreen
+  };
+
   // Function to increase value
   const increaseValue = (value, setValue, increment) => {
     setValue(parseFloat((value + increment).toFixed(1)));
@@ -54,71 +59,77 @@ export default function InfoScreen() {
             </Text>
 
             {/* Height Input */}
-            <View style={styles.inputContainer}>
-              <TouchableOpacity
-                onPress={() => decreaseValue(height, setHeight, 0.1)}
-              >
-                <Text style={styles.adjustButton}>-</Text>
-              </TouchableOpacity>
-              <TextInput
-                style={styles.input}
-                placeholder="Height (cm)"
-                placeholderTextColor="#fff"
-                keyboardType="numeric"
-                value={height.toString()}
-                onChangeText={(text) => setHeight(parseFloat(text))}
-              />
-              <TouchableOpacity
-                onPress={() => increaseValue(height, setHeight, 0.1)}
-              >
-                <Text style={styles.adjustButton}>+</Text>
-              </TouchableOpacity>
+            <View style={styles.inputGroup}>
+              <Text style={styles.label}>Height (cm)</Text>
+              <View style={styles.inputContainer}>
+                <TouchableOpacity
+                  onPress={() => decreaseValue(height, setHeight, 0.1)}
+                >
+                  <Text style={styles.adjustButton}>-</Text>
+                </TouchableOpacity>
+                <TextInput
+                  style={styles.input}
+                  placeholder="Height (cm)"
+                  placeholderTextColor="#fff"
+                  keyboardType="numeric"
+                  value={height.toString()}
+                  onChangeText={(text) => setHeight(parseFloat(text))}
+                />
+                <TouchableOpacity
+                  onPress={() => increaseValue(height, setHeight, 0.1)}
+                >
+                  <Text style={styles.adjustButton}>+</Text>
+                </TouchableOpacity>
+              </View>
             </View>
 
             {/* Weight Input */}
-            <View style={styles.inputContainer}>
-              <TouchableOpacity
-                onPress={() => decreaseValue(weight, setWeight, 0.1)}
-              >
-                <Text style={styles.adjustButton}>-</Text>
-              </TouchableOpacity>
-              <TextInput
-                style={styles.input}
-                placeholder="Weight (kg)"
-                placeholderTextColor="#fff"
-                keyboardType="numeric"
-                value={weight.toString()}
-                onChangeText={(text) => setWeight(parseFloat(text))}
-              />
-              <TouchableOpacity
-                onPress={() => increaseValue(weight, setWeight, 0.1)}
-              >
-                <Text style={styles.adjustButton}>+</Text>
-              </TouchableOpacity>
+            <View style={styles.inputGroup}>
+              <Text style={styles.label}>Weight (kg)</Text>
+              <View style={styles.inputContainer}>
+                <TouchableOpacity
+                  onPress={() => decreaseValue(weight, setWeight, 0.1)}
+                >
+                  <Text style={styles.adjustButton}>-</Text>
+                </TouchableOpacity>
+                <TextInput
+                  style={styles.input}
+                  placeholder="Weight (kg)"
+                  placeholderTextColor="#fff"
+                  keyboardType="numeric"
+                  value={weight.toString()}
+                  onChangeText={(text) => setWeight(parseFloat(text))}
+                />
+                <TouchableOpacity
+                  onPress={() => increaseValue(weight, setWeight, 0.1)}
+                >
+                  <Text style={styles.adjustButton}>+</Text>
+                </TouchableOpacity>
+              </View>
             </View>
 
             {/* Age Input */}
-            <View style={styles.inputContainer}>
-              <TouchableOpacity onPress={() => decreaseValue(age, setAge, 1)}>
-                <Text style={styles.adjustButton}>-</Text>
-              </TouchableOpacity>
-              <TextInput
-                style={styles.input}
-                placeholder="Age"
-                placeholderTextColor="#fff"
-                keyboardType="numeric"
-                value={age.toString()}
-                onChangeText={(text) => setAge(parseInt(text, 10))}
-              />
-              <TouchableOpacity onPress={() => increaseValue(age, setAge, 1)}>
-                <Text style={styles.adjustButton}>+</Text>
-              </TouchableOpacity>
+            <View style={styles.inputGroup}>
+              <Text style={styles.label}>Age</Text>
+              <View style={styles.inputContainer}>
+                <TouchableOpacity onPress={() => decreaseValue(age, setAge, 1)}>
+                  <Text style={styles.adjustButton}>-</Text>
+                </TouchableOpacity>
+                <TextInput
+                  style={styles.input}
+                  placeholder="Age"
+                  placeholderTextColor="#fff"
+                  keyboardType="numeric"
+                  value={age.toString()}
+                  onChangeText={(text) => setAge(parseInt(text, 10))}
+                />
+                <TouchableOpacity onPress={() => increaseValue(age, setAge, 1)}>
+                  <Text style={styles.adjustButton}>+</Text>
+                </TouchableOpacity>
+              </View>
             </View>
 
-            <TouchableOpacity
-              style={styles.button}
-              onPress={navigateToVerifyScreen}
-            >
+            <TouchableOpacity style={styles.button} onPress={navigateToHome}>
               <Text style={styles.buttonText}>Proceed</Text>
             </TouchableOpacity>
           </View>
@@ -143,7 +154,7 @@ const styles = StyleSheet.create({
     position: "absolute", // Position the form at the bottom
     bottom: 0,
     backgroundColor: colors.secondary,
-    height: "70%",
+    height: "80%",
     width: "100%",
     paddingHorizontal: 40,
     paddingVertical: 40,
@@ -172,6 +183,16 @@ const styles = StyleSheet.create({
     marginBottom: 80,
     fontFamily: "DMSans-Regular",
   },
+  inputGroup: {
+    marginBottom: 20,
+  },
+  label: {
+    fontSize: 18,
+    color: "#fff",
+    fontFamily: "DMSans-Bold",
+    marginBottom: 5,
+    textAlign: "center",
+  },
   inputContainer: {
     flexDirection: "row",
     alignItems: "center",
@@ -179,7 +200,7 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: "#fff",
     borderRadius: 10,
-    bottom: 50,
+    justifyContent: "space-between",
   },
   input: {
     flex: 1,
@@ -203,7 +224,6 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     alignItems: "center",
     marginTop: 20,
-    position: "absolute",
     bottom: 0, // Adjusted to be 30 from the bottom
     left: 0,
     right: 0, // Center horizontally
