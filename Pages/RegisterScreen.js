@@ -163,7 +163,7 @@ const styles = StyleSheet.create({
     width: "100%",
     padding: 15,
     marginVertical: 10,
-    backgroundColor: colors.tertiary,
+    backgroundColor: colors.secondary,
     borderRadius: 10,
     color: "#fff",
     fontSize: 16,
