@@ -10,6 +10,9 @@ import LoginScreen from "./pages/loginScreen";
 import RegisterScreen from "./pages/registerScreen";
 import VerifyScreen from "./pages/verifyScreen";
 import InfoScreen from "./pages/infoScreen";
+import ForgotScreen from "./pages/forgotScreen";
+import VerifyCodeScreen from "./pages/verifyCodeScreen";
+import ResetScreen from "./pages/resetScreen";
 
 const Stack = createStackNavigator();
 
@@ -50,6 +53,9 @@ export default function App() {
         <Stack.Screen name="Register" component={RegisterScreen} />
         <Stack.Screen name="Verify" component={VerifyScreen} />
         <Stack.Screen name="Info" component={InfoScreen} />
+        <Stack.Screen name="Forgot" component={ForgotScreen} />
+        <Stack.Screen name="VerifyPin" component={VerifyCodeScreen} />
+        <Stack.Screen name="Reset" component={ResetScreen} />
       </Stack.Navigator>
       <StatusBar style="light" />
     </NavigationContainer>
