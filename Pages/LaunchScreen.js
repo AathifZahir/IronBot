@@ -2,22 +2,18 @@ import React from "react";
 import { View, Text, StyleSheet, Image, TouchableOpacity } from "react-native";
 import { StatusBar } from "expo-status-bar";
 import { LinearGradient } from "expo-linear-gradient";
+import { colors } from "../assets/colors";
 
 export default function LaunchScreen({ navigation }) {
   return (
     <View style={styles.container}>
-      {/* Set the status bar content to white */}
       <StatusBar style="light" />
 
-      {/* Background Image */}
       <Image
-        source={{
-          uri: "https://storage.googleapis.com/a1aa/image/5UbKVrMidUIOKt12S6I0lhJn75dDX2KWIwp0gefQ6XccC23TA.jpg",
-        }}
+        source={require("../assets/Imgs/bg1.png")} // Local image
         style={styles.backgroundImage}
       />
 
-      {/* Bottom-to-Top Gradient Overlay */}
       <LinearGradient
         colors={["rgba(0, 0, 0, 0.8)", "rgba(0, 0, 0, 0)"]}
         style={styles.gradientOverlay}
@@ -25,25 +21,18 @@ export default function LaunchScreen({ navigation }) {
         end={{ x: 0.5, y: 0 }}
       />
 
-      {/* Content Overlay */}
       <View style={styles.content}>
-        {/* Logo */}
         <Image
-          source={{
-            uri: "https://storage.googleapis.com/a1aa/image/f7xeDzWTjfKrAoTcMboAolYEz4MQt53bFxRTMpDNHyz2EsvnA.jpg",
-          }}
+          source={require("../assets/Imgs/Logo.png")} // Local image
           style={styles.logo}
         />
 
-        {/* Title */}
         <Text style={styles.title}>IronBot</Text>
 
-        {/* Subtitle */}
         <Text style={styles.subtitle}>
           Unleash Your Potential with IronBot, Your Fitness Companion!
         </Text>
 
-        {/* Buttons */}
         <TouchableOpacity
           style={styles.button}
           onPress={() => navigation.navigate("Login")}
@@ -51,7 +40,6 @@ export default function LaunchScreen({ navigation }) {
           <Text style={styles.buttonText}>Get Started</Text>
         </TouchableOpacity>
 
-        {/* Signup Prompt */}
         <Text style={styles.signupText}>
           Don’t have an account?{" "}
           <Text
@@ -76,7 +64,7 @@ const styles = StyleSheet.create({
   backgroundImage: {
     ...StyleSheet.absoluteFillObject,
     width: "100%",
-    height: "100%",
+    height: "110%",
     resizeMode: "cover",
   },
   gradientOverlay: {
@@ -109,9 +97,10 @@ const styles = StyleSheet.create({
     color: "#fff",
     textAlign: "center",
     marginBottom: 20,
+    marginTop: 50,
   },
   button: {
-    backgroundColor: "#d7ff00",
+    backgroundColor: colors.primary,
     paddingVertical: 15,
     paddingHorizontal: 40,
     borderRadius: 30,
@@ -131,7 +120,7 @@ const styles = StyleSheet.create({
     fontSize: 14,
   },
   signupLink: {
-    color: "#d7ff00",
+    color: colors.primary,
     fontFamily: "DMSans-SemiBold",
   },
 });

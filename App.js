@@ -5,9 +5,11 @@ import { StatusBar } from "expo-status-bar";
 import { View, ActivityIndicator } from "react-native";
 import { useFonts } from "expo-font";
 
-import LaunchScreen from "./pages/LaunchScreen";
-import LoginScreen from "./pages/LoginScreen";
-import RegisterScreen from "./pages/RegisterScreen";
+import LaunchScreen from "./pages/launchScreen";
+import LoginScreen from "./pages/loginScreen";
+import RegisterScreen from "./pages/registerScreen";
+import VerifyScreen from "./pages/verifyScreen";
+import InfoScreen from "./pages/infoScreen";
 
 const Stack = createStackNavigator();
 
@@ -41,11 +43,13 @@ export default function App() {
     <NavigationContainer>
       <Stack.Navigator
         initialRouteName="Launch"
-        screenOptions={{ headerShown: false }} // Hide headers for all screens
+        screenOptions={{ headerShown: false }}
       >
         <Stack.Screen name="Launch" component={LaunchScreen} />
         <Stack.Screen name="Login" component={LoginScreen} />
         <Stack.Screen name="Register" component={RegisterScreen} />
+        <Stack.Screen name="Verify" component={VerifyScreen} />
+        <Stack.Screen name="Info" component={InfoScreen} />
       </Stack.Navigator>
       <StatusBar style="light" />
     </NavigationContainer>
